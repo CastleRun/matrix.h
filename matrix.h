@@ -1,0 +1,5 @@
+/*
+Matrix.h
+
+Matrix.h is a matrix library for C.
+*/
