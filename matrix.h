@@ -13,17 +13,32 @@ Matrix.h is a matrix library for C.
 When matrix is created, (r*c) memory values are allocated.
 */
 typedef struct{
-  int *mat;
-  int c;
-  int r;
+  double *mat;
+  unsigned int c;
+  unsigned int r;
 } matrix;
 
 //createMatrix goes here
-matrix createMatrix(int c, int r){
+matrix createMatrix(unsigned int c, unsigned int r){
   matrix m;
-  m.mat = (int *)malloc((size_t) (r * c));
+  m.mat = (int *)malloc((size_t) (c * r));
   m.c = c;
   m.r = r;
   
   return m;
+}
+
+matrix createMatrixFromArray(double *x, unsigned int c, unsigned int r){
+  matrix m = createMatrix(c, r);
+  
+  int i, j;
+  for(i = 0; i < c; i++){
+    for(j = 0; j < r; i++){
+      //Work
+    }
+  }
+}
+
+double getValue(matrix m, unsigned int c, unsigned int r){
+  return m.mat[r * mat.c + c];
 }
