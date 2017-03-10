@@ -14,31 +14,33 @@ When matrix is created, (r*c) memory values are allocated.
 */
 typedef struct{
   double *mat;
-  unsigned int c;
-  unsigned int r;
+  unsigned int m;
+  unsigned int n;
 } matrix;
 
 //createMatrix goes here
-matrix createMatrix(unsigned int c, unsigned int r){
-  matrix m;
-  m.mat = (int *)malloc((size_t) (c * r));
-  m.c = c;
-  m.r = r;
+matrix createMatrix(unsigned int m, unsigned int n){
+  matrix mt;
+  mt.mat = (int *)malloc((size_t) (m * n));
+  mt.m = m;
+  mt.n = n;
   
-  return m;
+  return mt;
 }
 
-matrix createMatrixFromArray(double *x, unsigned int c, unsigned int r){
-  matrix m = createMatrix(c, r);
+matrix createMatrixFromArray(double *x, unsigned int m, unsigned int n){
+  matrix mt = createMatrix(m, n);
   
   int i, j;
-  for(i = 0; i < c; i++){
-    for(j = 0; j < r; i++){
-      //Work
+  for(i = 0; i < m; i++){
+    for(j = 0; j < n; i++){
+      mt.mat[i * n + j] = x[i * n + j];
     }
   }
+  
+  return mt;
 }
 
-double getValue(matrix m, unsigned int c, unsigned int r){
-  return m.mat[r * mat.c + c];
+double getValue(matrix mt, unsigned int m, unsigned int n){
+  return mt.mat[m * mt.n + n];
 }
